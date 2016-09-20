@@ -41,6 +41,7 @@ require 'base64'
 module DockerCloud
   class Client
     attr_reader :username
+    attr_reader :organizer
 
     class ApiType
       INFRASTRUCTURE = 'infra'.freeze
@@ -50,9 +51,10 @@ module DockerCloud
       CONTAINER = 'container'.freeze
     end
 
-    def initialize(username, api_key)
+    def initialize(username, api_key, organizer = nil)
       @username = username
       @api_key = api_key
+      @organizer = organizer
     end
 
     def headers

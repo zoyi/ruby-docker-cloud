@@ -15,7 +15,11 @@ module DockerCloud
     end
 
     def url(path)
-      BASE_API_PATH + '/' + @type + '/' + API_VERSION + path
+      unless @client.organizer
+        BASE_API_PATH + '/' + @type + '/' + API_VERSION + path
+      else
+        BASE_API_PATH + '/' + @type + '/' + API_VERSION + '/' + @client.organizer + path
+      end
     end
 
     def http_get(path, params = {})

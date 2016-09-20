@@ -28,6 +28,9 @@ Getting Started:
 # Authenticate your ruby client with a usernamme and api_key
 client = DockerCloud::Client.new(username, api_key)
 
+# or
+# client = DockerCloud::Client.new(username, api_key, organizer)
+
 # Providers
 provider = client.providers
 
